@@ -1,0 +1,39 @@
+{
+  "name": "navigating-the-stars",
+  "version": "1.0.0",
+  "proxy": "http://localhost:1234/",
+  "description": "",
+  "main": "index.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "date-and-time": "^3.0.2",
+    "express": "^4.18.2",
+    "geojson-places": "^1.0.8",
+    "node-fetch": "^3.3.2",
+    "request": "^2.88.2",
+    "three": "^0.153.0"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.1",
+    "util": "^0.12.5"
+  }
+}
