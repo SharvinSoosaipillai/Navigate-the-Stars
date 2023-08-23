@@ -1,6 +1,6 @@
 .calender{
-    height: 37.5vh;
-    width: 25vw;
+    height: 100%;
+    width: 100%;
     background-color: #4d4c5a;
     border-radius: 60px;
     padding: 20px;
@@ -9,8 +9,6 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     box-sizing: border-box;
     transition: 0.5s;
-
-
 }
 
 .calender:hover{
@@ -34,8 +32,8 @@
     border-right: none;
     border-left: none;
     border-radius: 20px;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .calender_week_day{
@@ -43,6 +41,7 @@
     grid-template-columns: repeat(7,1fr);
     height: 50px;
     font-weight: 400;
+    width: 100%;
 }
 
 .calender_week_day div{
@@ -57,18 +56,19 @@
     grid-template-columns: repeat(7,1fr);
     gap: 2px;
     color: #f8fbff;
+    width: 100%;
 }
 
 .calender_days div{
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* understand why */
     position: relative; 
     padding: 5px;
     cursor: pointer;
+    padding: 10%;
     animation:to-top 1s forwards;
 }
 
@@ -76,6 +76,7 @@
     padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 1.5vw;
 }
 
 .month_picker:hover{
@@ -85,17 +86,25 @@
 .year_picker{
     display: flex;
     align-items: center;
+    font-size: 1.5vw;
+}
+
+#year{
+    font-size: 1.5vw;
+    padding: 0;
+    margin: 0;
 }
 
 .year_change{
-    height: 40px;
-    width: 40px;
+    height: calc(3.5vw + 0.5vh);
+    width: calc(3.5vw + 0.5vh);
     border-radius: 50%;
     display: grid;
     place-items: center;
     margin: 0 10px;
     cursor: pointer;
     margin-top: 2%;
+    overflow: hidden;
 }
 
 .year_change:hover{

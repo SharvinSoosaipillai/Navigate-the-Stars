@@ -137,32 +137,21 @@ hr{
     padding-left: 10%;
 }
 
-#world{
-    position: fixed;
-}
 
-
-/* .information{
-    position: absolute;
-    top: 230%;
-    width: 100vw;
-    height: 100vh;
- 
-} */
 
 .info{
     position: absolute;
-    top: 230%;
+    top: 220%;
     width: 100vw;
     height: 100vh;
-    /* background-color: #913175; */
+    overflow: hidden;
 
 }
 
 .input{
     display: flex;
     justify-content: space-evenly;
-    margin-right: 5%;
+    /* margin-right: 5%; */
 }
 
 
@@ -170,24 +159,12 @@ hr{
     display: flex;
     flex-direction: column;
     align-items: center;
-
-}
-
-
-button{
-    overflow: hidden;
     width: 30%;
-    height: 10%;
-    margin-top: 15%;
-    background-color: #323048;
-    cursor: pointer;
-    font-size: 3rem;
-    border: #913175 solid;
-    border-radius: 40px;
-    color: #E9E8E8;
-    transition: all ease-in-out 0.2s;
+    height: 20%;
 
 }
+
+
 
 button:hover{
     color: #913175;
@@ -202,12 +179,7 @@ button:hover{
 
 .input_location{
 
-    box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 40px;
     height: 40vh;
     width: 25vw;
 
@@ -239,7 +211,7 @@ button:hover{
     position: absolute;
     pointer-events: none;
     background-color: transparent;
-    font-size: 1.5em;
+    font-size: 2vw;
     color: #E9E8E8;
     text-transform: uppercase;
     transition: 0.5s;

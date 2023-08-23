@@ -123,41 +123,25 @@ hr {
   font-size: calc(2.5vh + 2.5vw);
 }
 
-#world {
-  position: fixed;
-}
-
 .info {
   width: 100vw;
   height: 100vh;
   position: absolute;
-  top: 230%;
+  top: 220%;
+  overflow: hidden;
 }
 
 .input {
   justify-content: space-evenly;
-  margin-right: 5%;
   display: flex;
 }
 
 .input_date {
   flex-direction: column;
   align-items: center;
-  display: flex;
-}
-
-button {
-  cursor: pointer;
-  color: #e9e8e8;
-  background-color: #323048;
-  border: solid #913175;
-  border-radius: 40px;
   width: 30%;
-  height: 10%;
-  margin-top: 15%;
-  font-size: 3rem;
-  transition: all .2s ease-in-out;
-  overflow: hidden;
+  height: 20%;
+  display: flex;
 }
 
 button:hover {
@@ -171,11 +155,6 @@ button:hover {
 }
 
 .input_location {
-  box-sizing: border-box;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
   width: 25vw;
   height: 40vh;
   display: flex;
@@ -208,7 +187,7 @@ button:hover {
   text-transform: uppercase;
   background-color: #0000;
   padding: 8.5% 2%;
-  font-size: 1.5em;
+  font-size: 2vw;
   transition: all .5s;
   position: absolute;
   left: 0;
