@@ -693,6 +693,23 @@ window.addEventListener("resize", function() {
 });
 (0, _calender.getCalender)(now.getMonth(), now.getFullYear());
 //this is for the html code functionality
+document.addEventListener("DOMContentLoaded", function() {
+    const navbarLinks = document.querySelectorAll(".navbar_links");
+    navbarLinks.forEach((link)=>{
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href");
+            const target = document.querySelector(targetId);
+            if (target) {
+                const offset = target.offsetTop - 100; // Adjust the offset as needed
+                window.scrollTo({
+                    top: offset,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
 const name = document.getElementById("nameID");
 const expectedArrivalTime = document.getElementById("expectedArrivalID");
 const diameter = document.getElementById("EstimatedID");
@@ -726,11 +743,6 @@ function displayInfo(asteroidName, expectedArrival, estimated_diameter, position
     expectedArrivalTime.innerHTML = expectedArrival;
     diameter.innerHTML = estimated_diameter;
     estimatedPosition.innerHTML = position;
-    // if (position !== undefined){
-    //     estimatedPosition.innerHTML = (90 - position[0])+ "," +(180 + position[1])
-    // } else {
-    //     estimatedPosition.innerHTML = "N/A"
-    // }
     total.innerHTML = index + 1 + " / " + asteroidAmount;
 }
 function showLocation(coordinate) {
@@ -744,7 +756,7 @@ function showLocation(coordinate) {
     } else coordinateMesh.position.set(0, 0, 0);
 }
 
-},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","../Assets/earthbumpmap.jpg":"gl1er","../Assets/earth.jpg":"kL25b","../Assets/earthCloudMap.png":"82QG5","../Assets/moon.jpg":"lBdQX","../Assets/sun.jpg":"5s3rX","../Assets/stars.jpg":"bsnBQ","@parcel/transformer-js/src/esmodule-helpers.js":"1z0By","./nasaInfo":"hm7zA","./calender":"2cC8q"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","three/examples/jsm/controls/OrbitControls.js":"7mqRv","./nasaInfo":"hm7zA","./calender":"2cC8q","../Assets/earthbumpmap.jpg":"gl1er","../Assets/earth.jpg":"kL25b","../Assets/earthCloudMap.png":"82QG5","../Assets/moon.jpg":"lBdQX","../Assets/sun.jpg":"5s3rX","../Assets/stars.jpg":"bsnBQ","@parcel/transformer-js/src/esmodule-helpers.js":"1z0By"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -11250,8 +11262,8 @@ const _axisDirections = [
         if (this._pingPongRenderTarget === null || this._pingPongRenderTarget.width !== width || this._pingPongRenderTarget.height !== height) {
             if (this._pingPongRenderTarget !== null) this._dispose();
             this._pingPongRenderTarget = _createRenderTarget(width, height, params);
-            const { _lodMax } = this;
-            ({ sizeLods: this._sizeLods, lodPlanes: this._lodPlanes, sigmas: this._sigmas } = _createPlanes(_lodMax));
+            const { _lodMax  } = this;
+            ({ sizeLods: this._sizeLods , lodPlanes: this._lodPlanes , sigmas: this._sigmas  } = _createPlanes(_lodMax));
             this._blurMaterial = _getBlurShader(_lodMax, width, height);
         }
         return cubeUVRenderTarget;
@@ -11395,7 +11407,7 @@ const _axisDirections = [
         blurUniforms["weights"].value = weights;
         blurUniforms["latitudinal"].value = direction === "latitudinal";
         if (poleAxis) blurUniforms["poleAxis"].value = poleAxis;
-        const { _lodMax } = this;
+        const { _lodMax  } = this;
         blurUniforms["dTheta"].value = radiansPerPixel;
         blurUniforms["mipInt"].value = _lodMax - lodIn;
         const outputSize = this._sizeLods[lodOut];
@@ -17618,7 +17630,7 @@ function createCanvasElement() {
 }
 class WebGLRenderer {
     constructor(parameters = {}){
-        const { canvas = createCanvasElement(), context = null, depth = true, stencil = true, alpha = false, antialias = false, premultipliedAlpha = true, preserveDrawingBuffer = false, powerPreference = "default", failIfMajorPerformanceCaveat = false } = parameters;
+        const { canvas =createCanvasElement() , context =null , depth =true , stencil =true , alpha =false , antialias =false , premultipliedAlpha =true , preserveDrawingBuffer =false , powerPreference ="default" , failIfMajorPerformanceCaveat =false  } = parameters;
         this.isWebGLRenderer = true;
         let _alpha;
         if (context !== null) _alpha = context.getContextAttributes().alpha;
@@ -21921,7 +21933,7 @@ class EdgesGeometry extends BufferGeometry {
                     indexArr[1] = i + 1;
                     indexArr[2] = i + 2;
                 }
-                const { a, b, c } = _triangle;
+                const { a , b , c  } = _triangle;
                 a.fromBufferAttribute(positionAttr, indexArr[0]);
                 b.fromBufferAttribute(positionAttr, indexArr[1]);
                 c.fromBufferAttribute(positionAttr, indexArr[2]);
@@ -21960,7 +21972,7 @@ class EdgesGeometry extends BufferGeometry {
             }
             // iterate over all remaining, unmatched edges and add them to the vertex array
             for(const key in edgeData)if (edgeData[key]) {
-                const { index0, index1 } = edgeData[key];
+                const { index0 , index1  } = edgeData[key];
                 _v0.fromBufferAttribute(positionAttr, index0);
                 _v1$1.fromBufferAttribute(positionAttr, index1);
                 vertices.push(_v0.x, _v0.y, _v0.z);
@@ -25382,7 +25394,7 @@ class FileLoader extends Loader {
                     start (controller) {
                         readData();
                         function readData() {
-                            reader.read().then(({ done, value })=>{
+                            reader.read().then(({ done , value  })=>{
                                 if (done) controller.close();
                                 else {
                                     loaded += value.byteLength;
@@ -31498,72 +31510,19 @@ class OrbitControls extends (0, _three.EventDispatcher) {
     }
 }
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"1z0By"}],"gl1er":[function(require,module,exports) {
-module.exports = require("f5aeabc16007b1a1").getBundleURL("g05j8") + "earthbumpmap.8f49bcef.jpg" + "?" + Date.now();
-
-},{"f5aeabc16007b1a1":"9o6cY"}],"9o6cY":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"kL25b":[function(require,module,exports) {
-module.exports = require("3e1f8447660412a9").getBundleURL("g05j8") + "earth.f3da16a4.jpg" + "?" + Date.now();
-
-},{"3e1f8447660412a9":"9o6cY"}],"82QG5":[function(require,module,exports) {
-module.exports = require("e203c086e93121ec").getBundleURL("g05j8") + "earthCloudMap.a72b6fbc.png" + "?" + Date.now();
-
-},{"e203c086e93121ec":"9o6cY"}],"lBdQX":[function(require,module,exports) {
-module.exports = require("3160805fb839440e").getBundleURL("g05j8") + "moon.74932e4a.jpg" + "?" + Date.now();
-
-},{"3160805fb839440e":"9o6cY"}],"5s3rX":[function(require,module,exports) {
-module.exports = require("df1ff40219529f59").getBundleURL("g05j8") + "sun.91e9b799.jpg" + "?" + Date.now();
-
-},{"df1ff40219529f59":"9o6cY"}],"bsnBQ":[function(require,module,exports) {
-module.exports = require("917418068f09335e").getBundleURL("g05j8") + "stars.6585a417.jpg" + "?" + Date.now();
-
-},{"917418068f09335e":"9o6cY"}],"hm7zA":[function(require,module,exports) {
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"1z0By"}],"hm7zA":[function(require,module,exports) {
 // remember to explain why you aren't using express to store the api key (you don't know express)
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getEventLocation", ()=>getEventLocation);
 parcelHelpers.export(exports, "getAsteroidName", ()=>getAsteroidName);
 parcelHelpers.export(exports, "getAsteroidTimes", ()=>getAsteroidTimes);
-const api_key = "qbHRssz3j3YffcfIaRw9kXEMCgRKVAbpcvNYpk4I";
+const api_key = "API_KEY";
 const now = new Date();
 function getEventLocation(day, month, year) {
     var information = updateURL(getDateSelected(day, month, year), getCurrentDay());
     return fetch(information).then((res)=>res.json()).then((data)=>{
-        const { element_count, near_earth_objects, ...locData } = data;
+        const { element_count , near_earth_objects , ...locData } = data;
         return Object.entries(near_earth_objects).map(([date, data])=>{
             return {
                 date: date,
@@ -31734,12 +31693,12 @@ months.forEach((e, index)=>{
     monthList.appendChild(month);
 });
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"1z0By","./nasaInfo":"hm7zA","./location":"guwfB","./asteroidCalculations":"dHAGR","./index":"ebWYT"}],"guwfB":[function(require,module,exports) {
+},{"./nasaInfo":"hm7zA","./location":"guwfB","./asteroidCalculations":"dHAGR","./index":"ebWYT","@parcel/transformer-js/src/esmodule-helpers.js":"1z0By"}],"guwfB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getCurrentLocation", ()=>getCurrentLocation);
 function getCurrentLocation(country, province, city) {
-    return fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURI(city + " " + province + " " + country)}&key=4c28ba51f47c4e5e8848e302e5444fd5&pretty=1`).then((res)=>res.json()).then((data)=>{
+    return fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURI(city + " " + province + " " + country)}&key="api_key"&pretty=1`).then((res)=>res.json()).then((data)=>{
         return data.results[0];
     });
 }
@@ -31854,6 +31813,59 @@ function horizontalToEquatorial(azimuth, altitude, observerLatitude, observerLon
     };
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"1z0By"}]},["g3A8y","ebWYT"], "ebWYT", "parcelRequire667d")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"1z0By"}],"gl1er":[function(require,module,exports) {
+module.exports = require("1acf9662fb8ad251").getBundleURL("g05j8") + "earthbumpmap.8f49bcef.jpg" + "?" + Date.now();
+
+},{"1acf9662fb8ad251":"9o6cY"}],"9o6cY":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"kL25b":[function(require,module,exports) {
+module.exports = require("8d3453efbceeb085").getBundleURL("g05j8") + "earth.f3da16a4.jpg" + "?" + Date.now();
+
+},{"8d3453efbceeb085":"9o6cY"}],"82QG5":[function(require,module,exports) {
+module.exports = require("e0c5ec4a320456b7").getBundleURL("g05j8") + "earthCloudMap.a72b6fbc.png" + "?" + Date.now();
+
+},{"e0c5ec4a320456b7":"9o6cY"}],"lBdQX":[function(require,module,exports) {
+module.exports = require("d4dfa463f9d280fa").getBundleURL("g05j8") + "moon.74932e4a.jpg" + "?" + Date.now();
+
+},{"d4dfa463f9d280fa":"9o6cY"}],"5s3rX":[function(require,module,exports) {
+module.exports = require("a06200fae6af274d").getBundleURL("g05j8") + "sun.91e9b799.jpg" + "?" + Date.now();
+
+},{"a06200fae6af274d":"9o6cY"}],"bsnBQ":[function(require,module,exports) {
+module.exports = require("d065f36b26793d48").getBundleURL("g05j8") + "stars.6585a417.jpg" + "?" + Date.now();
+
+},{"d065f36b26793d48":"9o6cY"}]},["g3A8y","ebWYT"], "ebWYT", "parcelRequire667d")
 
 //# sourceMappingURL=index.739bf03c.js.map

@@ -164,6 +164,27 @@ getCalender(now.getMonth(), now.getFullYear())
 
 //this is for the html code functionality
 
+document.addEventListener("DOMContentLoaded", function() {
+    const navbarLinks = document.querySelectorAll(".navbar_links");
+
+    navbarLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            const target = document.querySelector(targetId);
+            if (target) {
+                const offset = target.offsetTop - 100; // Adjust the offset as needed
+                window.scrollTo({
+                    top: offset,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
+
+
 
 const name = document.getElementById("nameID");
 const expectedArrivalTime = document.getElementById("expectedArrivalID");
