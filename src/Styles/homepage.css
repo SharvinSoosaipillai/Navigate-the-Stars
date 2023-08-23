@@ -84,8 +84,7 @@ h1{
     display: flex;
     justify-content: flex-start;
     color: #E9E8E8;
-    /* decide on font related attributes later */
-    font-size: calc(5vh + 5vw); 
+    font-size: calc(4vh + 4vw); 
     padding: 7.5% 15%;
     font-weight: 500;
 
