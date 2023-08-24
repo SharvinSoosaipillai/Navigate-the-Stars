@@ -720,7 +720,8 @@ const next = document.getElementById("next");
 var index = 0;
 function plotCoordinates(coordinate, asteroidAmount, asteroids, asteroidTimes) {
     document.querySelector(".results").style.visibility = "visible";
-    document.getElementById("home").click();
+    // document.getElementById("home").click();
+    document.querySelector(".canvas").click();
     displayInfo(asteroids[index], asteroidTimes[index][0], asteroidTimes[index][1], coordinate[index], asteroidAmount);
     showLocation(coordinate[index]);
     next.addEventListener("click", function() {
@@ -742,7 +743,8 @@ function displayInfo(asteroidName, expectedArrival, estimated_diameter, position
     name.innerHTML = asteroidName;
     expectedArrivalTime.innerHTML = expectedArrival;
     diameter.innerHTML = estimated_diameter;
-    estimatedPosition.innerHTML = position;
+    if (position !== undefined) estimatedPosition.innerHTML = position[0].toFixed(3) + "," + position[1].toFixed(3);
+    else estimatedPosition.innerHTML = "undefined";
     total.innerHTML = index + 1 + " / " + asteroidAmount;
 }
 function showLocation(coordinate) {
@@ -31517,7 +31519,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getEventLocation", ()=>getEventLocation);
 parcelHelpers.export(exports, "getAsteroidName", ()=>getAsteroidName);
 parcelHelpers.export(exports, "getAsteroidTimes", ()=>getAsteroidTimes);
-const api_key = "API_KEY";
+const api_key = "qbHRssz3j3YffcfIaRw9kXEMCgRKVAbpcvNYpk4I";
 const now = new Date();
 function getEventLocation(day, month, year) {
     var information = updateURL(getDateSelected(day, month, year), getCurrentDay());
@@ -31698,7 +31700,9 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getCurrentLocation", ()=>getCurrentLocation);
 function getCurrentLocation(country, province, city) {
-    return fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURI(city + " " + province + " " + country)}&key="api_key"&pretty=1`).then((res)=>res.json()).then((data)=>{
+    const apiKey = "4c28ba51f47c4e5e8848e302e5444fd5"; // Make sure the environment variable is set
+    const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURI(city + " " + province + " " + country)}&key=${apiKey}&pretty=1`;
+    return fetch(apiUrl).then((res)=>res.json()).then((data)=>{
         return data.results[0];
     });
 }

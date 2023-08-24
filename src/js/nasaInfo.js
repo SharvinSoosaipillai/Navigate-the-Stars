@@ -1,5 +1,5 @@
 // remember to explain why you aren't using express to store the api key (you don't know express)
-const api_key = "API_KEY"
+const api_key = process.env.NASA_API_KEY
 const now = new Date();
 
 
@@ -122,6 +122,3 @@ function updateURL(dateSelected, currentDate){
     }
     
 }
-
-
-

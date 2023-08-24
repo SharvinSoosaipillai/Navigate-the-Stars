@@ -199,8 +199,8 @@ var index = 0;
 
 export function plotCoordinates (coordinate, asteroidAmount, asteroids, asteroidTimes){
     document.querySelector(".results").style.visibility = "visible"
-    document.getElementById("home").click();
-
+    // document.getElementById("home").click();
+    document.querySelector(".canvas").click();
 
     displayInfo(asteroids[index], asteroidTimes[index][0], asteroidTimes[index][1], coordinate[index], asteroidAmount)
     showLocation(coordinate[index])
@@ -228,7 +228,15 @@ function displayInfo(asteroidName, expectedArrival, estimated_diameter, position
     name.innerHTML = asteroidName;
     expectedArrivalTime.innerHTML =  expectedArrival;
     diameter.innerHTML = estimated_diameter;
-    estimatedPosition.innerHTML = position;
+
+    if (position !== undefined){
+
+        estimatedPosition.innerHTML = position[0].toFixed(3)+ "," + position[1].toFixed(3);
+
+    } else {
+        estimatedPosition.innerHTML = "undefined";
+
+    }
 
     total.innerHTML = (index+1) + " / "  + asteroidAmount
 }

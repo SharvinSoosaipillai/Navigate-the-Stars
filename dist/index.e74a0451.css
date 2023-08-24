@@ -155,9 +155,8 @@ button:hover {
 }
 
 .input_location {
-  width: 25vw;
-  height: 40vh;
-  display: flex;
+  width: auto;
+  height: 100%;
 }
 
 .input_section {
@@ -175,7 +174,7 @@ button:hover {
   border-radius: 10px;
   outline: none;
   width: 20vw;
-  margin: 5% 0;
+  margin: 8% 0;
   padding: 10px;
   font-size: 2em;
   transition: all .5s;
@@ -201,7 +200,7 @@ button:hover {
   border-right: 2px solid #913175;
   padding: 0 2%;
   font-size: 1em;
-  transform: translateX(10px)translateY(-1px);
+  transform: translateX(15px)translateY(-5px);
 }
 
 .input_section div input:valid, .input_section div input:focus {
