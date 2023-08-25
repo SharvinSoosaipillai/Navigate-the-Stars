@@ -1,9 +1,9 @@
 export function getNasaAPI(temp, latitude, longitude){
-  const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/';
+const proxyServerUrl = 'http://localhost:3000/proxy?url='; // Replace with your proxy server URL
   
   // Make the API request using fetch with the CORS proxy
   try {
-    return fetch(corsProxyUrl+ temp, {
+    return fetch(proxyServerUrl+ temp, {
       'Origin': 'http://localhost:1234/', // Replace with the actual origin of your web page
      
       'X-Requested-With': 'XMLHttpRequest',

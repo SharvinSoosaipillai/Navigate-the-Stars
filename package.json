@@ -17,6 +17,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "geojson-places": "^1.0.8",
+    "http-proxy-middleware": "^2.0.6",
     "node-fetch": "^3.3.2",
     "request": "^2.88.2",
     "three": "^0.153.0"

@@ -31712,10 +31712,10 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getNasaAPI", ()=>getNasaAPI);
 function getNasaAPI(temp, latitude, longitude) {
-    const corsProxyUrl = "https://cors-anywhere.herokuapp.com/";
+    const proxyServerUrl = "http://localhost:3000/proxy?url="; // Replace with your proxy server URL
     // Make the API request using fetch with the CORS proxy
     try {
-        return fetch(corsProxyUrl + temp, {
+        return fetch(proxyServerUrl + temp, {
             "Origin": "http://localhost:1234/",
             "X-Requested-With": "XMLHttpRequest"
         }).then((response)=>response.json()).then((data)=>{
