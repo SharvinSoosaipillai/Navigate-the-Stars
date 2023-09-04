@@ -5,7 +5,7 @@
 This is a program that aims to provide accurate and real-time estimations about the location of a shooting star/asteroid based on the user's current location and a selected date range the user has selected. This is done through using the NASA Api to find many of the different asteroids and using Astrophysics calculations to find the location based on specific attributes about the celestial object.
 
 
-## Instalation
+## Installation
 
 To use this application, follow the steps provided: 
 
@@ -40,7 +40,7 @@ and run the server file by running
 ```bash
 node server.mjs
 ```
-7. Finally, in a seperate terminal, in the main directory, run the following comman
+7. Finally, in a separate terminal open up the main directory, run the following command:
 ```bash
 parcel ./src/index.html
 ```
