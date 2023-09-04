@@ -11,7 +11,7 @@ To use this application, follow the steps provided:
 
 1. Clone this repository to your local machine:
 ```bash
-git clone [https://github.com/RajPandya737/Rubiks-Cube-Solver.git](https://github.com/SharvinSoosaipillai/Navigate-the-Stars.git)
+git clone [https://github.com/SharvinSoosaipillai/Navigate-the-Stars.git]
 ```
 
 2. Change to the project directory:
