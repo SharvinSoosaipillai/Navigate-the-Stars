@@ -49,3 +49,7 @@ node server.mjs
 ```bash
 parcel ./src/index.html
 ```
+
+## Future Implimentations
+
+In the future, I plan to implement a feature which enables the user to select between any 7 day date range rather than the current week they are in. 
