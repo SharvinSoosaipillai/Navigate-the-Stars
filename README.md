@@ -24,11 +24,16 @@ cd navigate-the-stars
 npm install
 ```
 
-4. Obtain a [Nasa API Key](https://api.nasa.gov/) and replace it in the .env folder
+4. Afterwards, install the parcel bundler by using the following command 
+```bash
+npm install parcel 
+```
 
-5. Obtain a [Open Cage](https://opencagedata.com/) and replace it in the .env folder 
+5. Obtain a [Nasa API Key](https://api.nasa.gov/) and replace it in the .env folder
 
-6. Navigate to the js files by running
+6. Obtain a [Open Cage](https://opencagedata.com/) and replace it in the .env folder 
+
+7. Navigate to the js files by running
 ```bash
 cd src
 ```
@@ -40,7 +45,7 @@ and run the server file by running
 ```bash
 node server.mjs
 ```
-7. Finally, in a separate terminal open up the main directory, run the following command:
+8. Finally, in a separate terminal open up the main directory, run the following command:
 ```bash
 parcel ./src/index.html
 ```
