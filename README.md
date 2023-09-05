@@ -43,11 +43,11 @@ cd js
 ```
 and run the server file by running 
 ```bash
-node server.mjs
+node ./src/js/server.mjs
 ```
 8. Finally, in a separate terminal open up the main directory, run the following command:
 ```bash
-parcel ./src/index.html
+npx parcel ./src/index.html
 ```
 
 ## Future Implimentations
