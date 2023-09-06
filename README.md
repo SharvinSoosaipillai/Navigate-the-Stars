@@ -4,6 +4,7 @@
 
 This is a program that aims to provide accurate and real-time estimations about the location of a shooting star/asteroid based on the user's current location and a selected date range the user has selected. This is done through using the NASA Api to find many of the different asteroids and using Astrophysics calculations to find the location based on specific attributes about the celestial object.
 
+In order to accuratly identify the exact location a shooting star would be relative to the observer, I used [Jeremy Tatum's](https://phys.libretexts.org/Bookshelves/Astronomy__Cosmology/Celestial_Mechanics_(Tatum)/10%3A_Computation_of_an_Ephemeris/10.07%3A_Calculating_the_Position_of_a_Comet_or_Asteroid) findings along with his [studies](https://www.astro.uvic.ca/~tatum/celmechs/celm10.pdf) to do so. These resources gave me the fundemental understanding of astrophysics to make this project a reality. 
 
 ## Installation
 
