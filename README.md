@@ -33,15 +33,7 @@ npm install parcel
 
 6. Obtain a [Open Cage](https://opencagedata.com/) and replace it in the .env folder 
 
-7. Navigate to the js files by running
-```bash
-cd src
-```
-then 
-```bash
-cd js
-```
-and run the server file by running 
+7. Run the server file by running 
 ```bash
 node ./src/js/server.mjs
 ```
